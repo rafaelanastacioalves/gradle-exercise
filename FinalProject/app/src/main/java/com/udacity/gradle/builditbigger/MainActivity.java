@@ -44,6 +44,7 @@ public class MainActivity extends ActionBarActivity {
 //        Toast.makeText(this, new JokeProvider().getJoke(), Toast.LENGTH_SHORT).show();
         //// TODO: 30/08/16 remove this string
         new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "whathever"));
+
     }
 
 
