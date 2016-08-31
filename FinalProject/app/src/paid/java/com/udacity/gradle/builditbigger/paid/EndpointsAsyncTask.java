@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.util.Pair;
 
-import com.example.example.JokeActivity;
+import com.example.jokeshow.JokeActivity;
 import com.example.rafael.alves.myapplication.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
