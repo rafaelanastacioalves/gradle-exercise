@@ -7,6 +7,8 @@ import android.test.suitebuilder.annotation.MediumTest;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.udacity.gradle.builditbigger.paid.MainActivity;
+
 import java.util.concurrent.ExecutionException;
 
 /**
