@@ -37,7 +37,7 @@ task openBackend {
 
 task functionalTests {
     shouldRunAfter "openBackend"
-    dependsOn ":app:check"
+    dependsOn ":app:connectedAndroidTest"
     doLast {
         println "Functional Tests done"
     }
