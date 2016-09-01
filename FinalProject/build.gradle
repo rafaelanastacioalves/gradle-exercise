@@ -17,3 +17,41 @@ allprojects {
         jcenter()
     }
 }
+
+evaluationDependsOn ":backend"
+
+project(":backend"){
+    appengine{
+        daemon true
+    }
+}
+
+
+task openBackend {
+    dependsOn  tasks.getByPath(":backend:appengineRun")
+    doLast {
+        println "Open Backend done"
+    }
+
+}
+
+task functionalTests {
+    shouldRunAfter "openBackend"
+    dependsOn ":app:check"
+    doLast {
+        println "Functional Tests done"
+    }
+}
+
+task closeBackend {
+    shouldRunAfter "functionalTests"
+    dependsOn ":backend:appengineStop"
+    doLast {
+        println "Close Backend done"
+    }
+}
+
+task integrationTests {
+    dependsOn openBackend, functionalTests, closeBackend
+}
+
