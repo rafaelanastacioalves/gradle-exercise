@@ -49,10 +49,10 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         }
 
 
-
+        String name = ".";
         try {
             // TODO: 30/08/16 remove this string usage
-            return myApiService.sayHi("").execute().getData();
+            return myApiService.sayHi(name).execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }

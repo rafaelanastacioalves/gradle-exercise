@@ -1,26 +1,19 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.os.Parcel;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.v4.util.Pair;
-import android.test.ActivityInstrumentationTestCase2;
-import android.test.suitebuilder.annotation.MediumTest;
-import android.test.suitebuilder.annotation.SmallTest;
-import android.widget.Button;
-import android.widget.TextView;
 
-import org.junit.Before;
+import android.test.suitebuilder.annotation.SmallTest;
+import android.util.Log;
+
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.List;
+
 import java.util.concurrent.ExecutionException;
 
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNotSame;
-import com.udacity.gradle.builditbigger.EndpointsAsyncTaskCallBack;
-import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -32,26 +25,35 @@ import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 public class ApplicationTest {
 
 
+    private final String LOG_TAG = getClass().getCanonicalName();
 
-    @Before
-    public void createLogHistory() {
-
-    }
-
-    @MediumTest
+    @Test
     public void testVerifyEchoResponse() {
         EndpointsAsyncTask asyncTaskCompat = new EndpointsAsyncTask(new EndpointsAsyncTaskCallBack () {
             @Override
             public void onTaskSuccess(String result) {
 
                     assertNotNull("It is null!", result);
-                    assertNotSame("It's empty!", "", result);
+                    assertNotSame("It's empty!", "a Joke", result);
+                Log.i(LOG_TAG,"Checked via interface. The result was: " + result);
 
             }
         });
 
         asyncTaskCompat.execute();
 
+        try {
+            Log.i(LOG_TAG,"Before checking via direct run...");
+            assertNotNull("It is null!", (String) asyncTaskCompat.get());
+            assertNotSame("It's empty!", "a Joke", asyncTaskCompat.get());
+            Log.i(LOG_TAG,"Checked via direct run. The result was: " + asyncTaskCompat.get());
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
 
     }

@@ -1,9 +1,7 @@
 package com.udacity.gradle.builditbigger.paid;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.util.Pair;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,7 +46,7 @@ public class MainActivity extends ActionBarActivity implements EndpointsAsyncTas
 
     public void tellJoke(View view) {
 
-        new EndpointsAsyncTask(this).execute();
+        new EndpointsAsyncTask((EndpointsAsyncTaskCallBack) this).execute();
 
     }
 
