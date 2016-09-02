@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.jokeshow.JokeActivity;
+import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
+import com.udacity.gradle.builditbigger.EndpointsAsyncTaskCallBack;
 import com.udacity.gradle.builditbigger.R;
 
 
@@ -45,9 +47,8 @@ public class MainActivity extends ActionBarActivity implements EndpointsAsyncTas
     }
 
     public void tellJoke(View view) {
-//        Toast.makeText(this, new JokeProvider().getJoke(), Toast.LENGTH_SHORT).show();
-        //// TODO: 30/08/16 remove this string
-        new EndpointsAsyncTask(this).execute(new Pair<Context, String>(this, "whathever"));
+
+        new EndpointsAsyncTask(this).execute();
 
     }
 

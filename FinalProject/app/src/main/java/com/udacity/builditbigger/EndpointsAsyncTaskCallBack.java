@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.paid;
+package com.udacity.gradle.builditbigger;
 
 /**
  * Created by rafaelanastacioalves on 9/2/16.
