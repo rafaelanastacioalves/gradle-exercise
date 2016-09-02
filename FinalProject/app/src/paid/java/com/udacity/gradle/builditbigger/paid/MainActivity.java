@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger.paid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.support.v7.app.ActionBarActivity;
@@ -8,11 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.udacity.gradle.builditbigger.paid.EndpointsAsyncTask;
+import com.example.jokeshow.JokeActivity;
 import com.udacity.gradle.builditbigger.R;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements EndpointsAsyncTaskCallBack {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +47,15 @@ public class MainActivity extends ActionBarActivity {
     public void tellJoke(View view) {
 //        Toast.makeText(this, new JokeProvider().getJoke(), Toast.LENGTH_SHORT).show();
         //// TODO: 30/08/16 remove this string
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "whathever"));
+        new EndpointsAsyncTask(this).execute(new Pair<Context, String>(this, "whathever"));
 
     }
 
 
+    @Override
+    public void onTaskSuccess(String result) {
+        Intent i = new Intent(this, JokeActivity.class);
+        i.putExtra(JokeActivity.JOKE_EXTRA, result);
+        startActivity(i);
+    }
 }

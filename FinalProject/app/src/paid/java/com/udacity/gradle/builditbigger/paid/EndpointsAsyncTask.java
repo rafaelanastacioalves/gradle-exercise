@@ -1,11 +1,9 @@
 package com.udacity.gradle.builditbigger.paid;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.util.Pair;
 
-import com.example.jokeshow.JokeActivity;
 import com.example.rafael.alves.myapplication.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -21,6 +19,12 @@ import java.io.IOException;
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+    private EndpointsAsyncTaskCallBack delegate;
+
+    public EndpointsAsyncTask(EndpointsAsyncTaskCallBack delegate){
+        this.delegate = delegate;
+    }
+
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -55,8 +59,6 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-        Intent i = new Intent(context, JokeActivity.class);
-        i.putExtra(JokeActivity.JOKE_EXTRA, result);
-        context.startActivity(i);
+        delegate.onTaskSuccess(result);
     }
 }

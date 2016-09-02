@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.paid;
 
 import android.content.Context;
 import android.support.v4.util.Pair;
@@ -6,8 +6,6 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.udacity.gradle.builditbigger.paid.MainActivity;
 
 import java.util.concurrent.ExecutionException;
 
@@ -36,7 +34,7 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
 
     @MediumTest
     public void testVerifyEchoResponse() {
-        EndpointsAsyncTask asyncTaskCompat = new EndpointsAsyncTask();
+        EndpointsAsyncTask asyncTaskCompat = new EndpointsAsyncTask(getActivity());
         asyncTaskCompat.execute(new Pair<Context, String>(mMainActivity, "whathever"));
         try {
             assertNotNull("It is null!", (String) asyncTaskCompat.get());
