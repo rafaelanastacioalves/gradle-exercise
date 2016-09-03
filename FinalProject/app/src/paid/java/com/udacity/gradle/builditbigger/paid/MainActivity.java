@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.jokeshow.JokeActivity;
 import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
@@ -15,12 +16,22 @@ import com.udacity.gradle.builditbigger.R;
 
 public class MainActivity extends ActionBarActivity implements EndpointsAsyncTaskCallBack {
 
+    private ProgressBar spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        spinner = (ProgressBar) findViewById(R.id.progressBar);
     }
 
+    @Override
+    protected void onResume() {
+        spinner.setVisibility(View.GONE);
+        super.onResume();
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,6 +56,8 @@ public class MainActivity extends ActionBarActivity implements EndpointsAsyncTas
     }
 
     public void tellJoke(View view) {
+
+        spinner.setVisibility(View.VISIBLE);
 
         new EndpointsAsyncTask((EndpointsAsyncTaskCallBack) this).execute();
 
