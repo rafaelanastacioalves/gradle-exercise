@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JokeShow</string>
+    <string name="this_is_what_you_asked_for">This is what you asked for:</string>
 </resources>
