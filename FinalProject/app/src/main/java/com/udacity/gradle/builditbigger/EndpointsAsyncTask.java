@@ -2,7 +2,6 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.v4.util.Pair;
 
 import com.example.rafael.alves.myapplication.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -49,7 +48,7 @@ public class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         }
 
 
-        String name = ".";
+        String name = "haha";
         try {
             // TODO: 30/08/16 remove this string usage
             return myApiService.sayHi(name).execute().getData();

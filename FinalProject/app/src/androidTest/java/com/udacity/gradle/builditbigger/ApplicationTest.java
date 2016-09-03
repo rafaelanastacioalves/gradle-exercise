@@ -34,7 +34,7 @@ public class ApplicationTest {
             public void onTaskSuccess(String result) {
 
                     assertNotNull("It is null!", result);
-                    assertNotSame("It's empty!", "a Joke", result);
+                    assertNotSame("It's empty!", result, result);
                 Log.i(LOG_TAG,"Checked via interface. The result was: " + result);
 
             }
@@ -45,7 +45,7 @@ public class ApplicationTest {
         try {
             Log.i(LOG_TAG,"Before checking via direct run...");
             assertNotNull("It is null!", (String) asyncTaskCompat.get());
-            assertNotSame("It's empty!", "a Joke", asyncTaskCompat.get());
+            assertNotSame("It's empty!", "", asyncTaskCompat.get());
             Log.i(LOG_TAG,"Checked via direct run. The result was: " + asyncTaskCompat.get());
 
 
