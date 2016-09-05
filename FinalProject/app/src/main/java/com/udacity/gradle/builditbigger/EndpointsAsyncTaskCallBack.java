@@ -5,5 +5,5 @@ package com.udacity.gradle.builditbigger;
  */
 public interface EndpointsAsyncTaskCallBack {
 
-        public void onTaskSuccess(String result);
+        void onTaskSuccess(String result);
 }

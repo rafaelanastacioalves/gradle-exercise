@@ -35,7 +35,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // Added for AdMob
-    compile project(path: ':jokeprovider')
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile project(path: ':jokeshow')
 

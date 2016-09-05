@@ -1,8 +1,9 @@
-package com.udacity.gradle.builditbigger.paid;
+package com.udacity.gradle.builditbigger;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +15,7 @@ import com.udacity.gradle.builditbigger.EndpointsAsyncTaskCallBack;
 import com.udacity.gradle.builditbigger.R;
 
 
-public class MainActivity extends ActionBarActivity implements EndpointsAsyncTaskCallBack {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTaskCallBack {
 
     private ProgressBar spinner;
 
@@ -55,11 +56,11 @@ public class MainActivity extends ActionBarActivity implements EndpointsAsyncTas
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    public void tellJoke(@SuppressWarnings("UnusedParameters") View view) {
 
         spinner.setVisibility(View.VISIBLE);
 
-        new EndpointsAsyncTask((EndpointsAsyncTaskCallBack) this).execute();
+        new EndpointsAsyncTask(this).execute();
 
     }
 
