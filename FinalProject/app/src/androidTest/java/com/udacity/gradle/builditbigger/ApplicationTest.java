@@ -7,6 +7,8 @@ import android.util.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.concurrent.ExecutionException;
+
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNotSame;
 
@@ -28,14 +30,24 @@ public class ApplicationTest {
             @Override
             public void onTaskSuccess(String result) {
 
-                    assertNotNull("It is null!", result);
-                    assertNotSame("It's empty!", "", result);
-                Log.i(LOG_TAG,"Checked via interface. The result was: " + result);
-
+                   
             }
         });
 
         asyncTaskCompat.execute();
+
+        try {
+            Log.i(LOG_TAG,"Before checking via direct run...");
+            assertNotNull("It is null!", (String) asyncTaskCompat.get());
+            Log.i(LOG_TAG,"Checked via direct run. The result was: " + asyncTaskCompat.get());
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
 
 
     }
