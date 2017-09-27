@@ -26,8 +26,13 @@ project(":backend"){
     }
 }
 
+task closeExistingBackend {
+    dependsOn tasks.getByPath(":backend:appengineStop")
+
+}
 
 task openBackend {
+    shouldRunAfter "closeExistingBackend"
     dependsOn  tasks.getByPath(":backend:appengineRun")
     doLast {
         println "Open Backend done"
@@ -52,7 +57,7 @@ task closeBackend {
 }
 
 task integrationTests {
-    dependsOn openBackend, functionalTests, closeBackend
+    dependsOn closeExistingBackend, openBackend, functionalTests, closeBackend
 }
 
 
