@@ -26,18 +26,10 @@ project(":backend"){
     }
 }
 
-task closeExistingBackend {
-    dependsOn tasks.getByPath(":backend:appengineStop")
-    doLast {
-        tasks.getByPath("backend:cleanAppengineStop")
-    }
-    outputs.upToDateWhen { false }
 
 
-}
 
 task openBackend {
-    shouldRunAfter "closeExistingBackend"
     dependsOn  tasks.getByPath(":backend:appengineRun")
     doLast {
         println "Open Backend done"
@@ -57,17 +49,13 @@ task closeBackend {
     mustRunAfter "functionalTests"
     outputs.upToDateWhen { false }
 
-//    doLast {
-//        tasks.getByPath(":backend:appengineStop")
-//
-//        println "Close Backend done"
-//    }
-    tasks.getByPath(":backend:appengineStop").execute()
-//
+
+    dependsOn tasks.getByPath(":backend:appengineStop")
+
 }
 
 task integrationTests {
-    dependsOn closeExistingBackend, openBackend, functionalTests, closeBackend
+    dependsOn openBackend, functionalTests, closeBackend
 }
 
 
