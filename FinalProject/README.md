@@ -11,7 +11,7 @@ multiple libraries and Google Could Endpoints. The app just shows a simple prhas
 <img src="/FinalProject/photos/photo_build_it_bigger.png" width="600">
 
 * A Java library that provides jokes phrases (just "a Joke"), 
-* a Google Cloud Endpoints (GCE) project that serves those jokes (adapted from this [sample](https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints)),
+* a Google Cloud Endpoints (GCE) project that serves those jokes (adapted from this [template](https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints)),
 * an Android Library containing an activity for displaying jokes,
 * and an Android app that fetches jokes from the GCE module and passes them to the Android Library for display.
 
