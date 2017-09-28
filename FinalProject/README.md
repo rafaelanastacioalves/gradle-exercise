@@ -6,14 +6,16 @@ multiple libraries and Google Could Endpoints. The app just shows a simple prhas
 * a Google Cloud Endpoints (GCE) project that serves those jokes (adapted from this [sample](https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints)),
 * an Android Library containing an activity for displaying jokes,
 * and an Android app that fetches jokes from the GCE module and passes them to the Android Library for display.
+<img src="/FinalProject/photos/photo_build_it_bigger.png" width="600">
+
 
 Additionally, I've created a gradle task, called "integrationTest" that does the following:
 * Starts a local development GCE;
 * Execute functinonal tests (I've added just a simple one);
 * Shutdown the local development GCE.
 
-<img src="/photos/joke_phrase_screen.png" width="200"> <img src="/photos/main_screen.png" width="200"> <img src="/photos/photo_build_it_bigger.png" width="200">
 
+<img src="/FinalProject/photos/main_screen.png" width="200"> <img src="/FinalProject/photos/joke_phrase_screen.png" width="200"> 
 
 
 ## Instructions
