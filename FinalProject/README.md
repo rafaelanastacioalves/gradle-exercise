@@ -5,8 +5,7 @@
 
 <img src="/FinalProject/photos/main_screen.png" width="200"> <img src="/FinalProject/photos/joke_phrase_screen.png" width="200"> 
 
-In this project, it was created a very simple app with multiple flavors that uses
-multiple libraries and Google Could Endpoints. The app just shows a simple prhase after clicking a button. There is the "free" verison that shows an embedded "ad" and a "paid" fake version without the ad. The main purpuse is to make a Android project that consists of four modules structured by me:
+In this project, it was created a very simple app that has multiple flavors, uses multiple libraries and uses local Google Could Endpoints. The app just shows a simple phrase after clicking a button. There is the "free" version that shows embedded "Ads" and a "paid" fake version without the "Ads". The purpose is to make an Android project that consists of four modules structured by me:
 
 <img src="/FinalProject/photos/photo_build_it_bigger.png" width="600">
 
@@ -16,9 +15,10 @@ multiple libraries and Google Could Endpoints. The app just shows a simple prhas
 * and an Android app that fetches jokes from the GCE module and passes them to the Android Library for display.
 
 ### Gradle Integration Task
+
 Additionally, I've created a gradle task, called "integrationTest" that does the following:
 * Starts a local development GCE;
-* Execute functinonal tests (I've added just a simple one);
+* Execute functional tests (I've added just a simple one);
 * Shutdown the local development GCE.
 
 
