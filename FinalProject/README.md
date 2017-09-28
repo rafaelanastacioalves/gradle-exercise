@@ -1,21 +1,23 @@
 # Gradle for Android and Java Final Project
 ## Summary
+
+
+<img src="/FinalProject/photos/main_screen.png" width="200"> <img src="/FinalProject/photos/joke_phrase_screen.png" width="200"> 
+
 In this project, it was created a very simple app with multiple flavors that uses
 multiple libraries and Google Could Endpoints. The app just shows a simple prhase after clicking a button. There is the "free" verison that shows an embedded "ad" and a "paid" fake version without the ad. The main purpuse is to make a Android project that consists of four modules structured by me:
+
+<img src="/FinalProject/photos/photo_build_it_bigger.png" width="600">
+
 * A Java library that provides jokes phrases (just "a Joke"), 
 * a Google Cloud Endpoints (GCE) project that serves those jokes (adapted from this [sample](https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints)),
 * an Android Library containing an activity for displaying jokes,
 * and an Android app that fetches jokes from the GCE module and passes them to the Android Library for display.
-<img src="/FinalProject/photos/photo_build_it_bigger.png" width="600">
-
 
 Additionally, I've created a gradle task, called "integrationTest" that does the following:
 * Starts a local development GCE;
 * Execute functinonal tests (I've added just a simple one);
 * Shutdown the local development GCE.
-
-
-<img src="/FinalProject/photos/main_screen.png" width="200"> <img src="/FinalProject/photos/joke_phrase_screen.png" width="200"> 
 
 
 ## Instructions
