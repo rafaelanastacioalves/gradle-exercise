@@ -20,12 +20,12 @@ Additionally, I've created a gradle task, called "integrationTest" that does the
 
 ### To see the app in action
 
-1 - Start the local development GCE: run `./gradlew :backend:appengineRun`
-2 - Deploy the free or the paid version of the app to an emulator connected 
+1. Start the local development GCE: run `./gradlew :backend:appengineRun`;
+2. Deploy the free or the paid version of the app to an emulator connected;
 to the same wifi as of the started GCE;
 
 ### To see the "integrationTest" task in action
 
-1 - Shutdown any local development GCE, if started: run `./gradlew :backend:appengineStop`;
-2 - Start an AVD (recommended);
-3 - Run: `./gradlew integrationTest`
+1. Shutdown any local development GCE, if started: run `./gradlew :backend:appengineStop`;
+2. Start an AVD (recommended);
+3. Run: `./gradlew integrationTest`;
