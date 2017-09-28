@@ -1,4 +1,4 @@
-# ud867: Gradle Exercise for Android and Java
+# ud867: Udacity's Gradle Exercise for Android and Java
 
 This course is specifically concerned with the app build process, not writing
 apps in the first place. 
